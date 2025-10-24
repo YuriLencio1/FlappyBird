@@ -36,10 +36,8 @@ const planoDeFundo = {
 };
 
 const fundo_desenho = () => {
-    contexto.fillstyle = '#70c5ce';
-    contexto.fillRect (0, 0, canvas.width, canvas.height);
-    /*  contexto.fillStyle = "#70c5ce";
-  contexto.fillRect(0, 0, canvas.width, canvas.height);*/ 
+  contexto.fillStyle = "#70c5ce";
+  contexto.fillRect(0, 0, canvas.width, canvas.height);
 
   contexto.drawImage(
     sprites,
@@ -57,28 +55,15 @@ const fundo_desenho = () => {
     sprites,
     planoDeFundo.spritesX,
     planoDeFundo.spritesY,
-    planoDeFundo.altura,
     planoDeFundo.largura,
+    planoDeFundo.altura,
     planoDeFundo.x + planoDeFundo.largura,
     planoDeFundo.y,
-    planoDeFundo.altura,
-    planoDeFundo.largura
+    planoDeFundo.largura,
+    planoDeFundo.altura
   );
 };
 
-const Bird_desenho = () => {
-  contexto.drawImage(
-    sprites,
-    FlappyBird.spritesX,
-    FlappyBird.sprites,
-    FlappyBird.alturaX,
-    FlappyBird.alturaY,
-    FlappyBird.larguraY,
-    FlappyBird.larguraX,
-    FlappyBird.X,
-    FlappyBird.Y
-  );
-};
 
 const chao_desenho = () => {
   contexto.drawImage(
@@ -106,10 +91,24 @@ const chao_desenho = () => {
   );
 };
 
+const bird_desenho = () => {
+  contexto.drawImage(
+    sprites,
+    FlappyBird.spritesX,
+    FlappyBird.spritesY,
+    FlappyBird.alturaX,
+    FlappyBird.alturaY,
+    FlappyBird.larguraY,
+    FlappyBird.larguraX,
+    FlappyBird.X,
+    FlappyBird.Y
+  );
+};
+
 const loop = () => {
-  Bird_desenho();
   fundo_desenho();
   chao_desenho();
+  bird_desenho();
 
   requestAnimationFrame(loop);
 };
